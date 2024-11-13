@@ -40,18 +40,49 @@
 		<h1 class="masthead">Time of Day</h1>
 	</header>
     <main>
-	 <header><h3>A JavaScript Project by YOUR NAME HERE</h3></header>
+	 <header><h3>A JavaScript Project by Varvara Maslouskaya</h3></header>
+	 <h3 id="my_greeting">Greeting Goes Here!</h3>
 	    <p>Explain what your page does and how it works here!</p>
 	  <img src="http://dummyimage.com/300x400" alt="Time of Day Image" class="flexible">
      <footer>
-      <p><small>&copy; 2022 by 
-          YOUR NAME HERE, All Rights Reserved ~ 
+      <p><small>&copy; 2024 by 
+          Varvara Maslouskaya, All Rights Reserved ~ 
           <a id="html-checker" href="#" target="_blank">Check HTML</a> ~ 
           <a id="css-checker" href="#" target="_blank">Check CSS</a></small>
      </p>
     </footer>
   </main>
- <script>
+	<script>
+		/*Create a web page that uses JavaScript to determine the current hour, and presents a different image, custom message, and color based on each of the following times of day:
+			Morning (5am to 12 noon)
+			Afternoon (12 noon to 6pm)
+			Evening (6pm to 11pm)
+			Night (11pm to 5am)
+		Criteria: The three items above (color, image, message) must be unique for each of the 4 time periods of the day.*/
+
+	myDate = new Date();
+	myHour= myDate.getHours();
+
+	if(myHour<12 && myHour>5){
+	mySentence ="Good morning";
+	myColor ="orange";
+	}
+	else if(myHour>=12 && myHour<=18){
+		mySentence ="Good afternoon";
+		myColor ="pink";
+	}
+	else if(myHour>18 && myHour<=23){
+		mySentence ="Good evening";
+		myColor ="lightblue";
+	}else{
+		mySentence ="Good night";
+		myColor ="black";
+	}
+
+	document.getElementById("my_greeting").innerHTML = mySentence;
+	document.body.style.backgroundColor =myColor;
+
+
     document.getElementById("html-checker").setAttribute("href","https://validator.w3.org/nu/?doc=" + location.href);
     document.getElementById("css-checker").setAttribute("href","https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);  
  </script>

@@ -42,7 +42,15 @@
     <main>
 	 <header><h3>A JavaScript Project by Varvara Maslouskaya</h3></header>
 	 <h3 id="my_greeting">Greeting Goes Here!</h3>
-	    <p>Explain what your page does and how it works here!</p>
+	 <h3 id="my_day">Day of the Week Goes Here!</h3>
+	    <pre>
+<i>This page shows you four ditterent pages outlooks 
+based on the time of the day:</i>
+Morning (5am to 12 noon)
+Afternoon (12 noon to 6pm)
+Evening (6pm to 11pm)
+Night (11pm to 5am)
+		</pre>
 	  <img src="" alt="Time of Day Image" class="flexible" id="my-pic">
      <footer>
       <p><small>&copy; 2024 by 
@@ -53,7 +61,7 @@
     </footer>
   </main>
 	<script>
-		/*Create a web page that uses JavaScript to determine the current hour, and presents a different image, custom message, and color based on each of the following times of day:
+		/*This page shows you four ditterent pages outlooks based on the time of the day:
 			Morning (5am to 12 noon)
 			Afternoon (12 noon to 6pm)
 			Evening (6pm to 11pm)
@@ -62,25 +70,33 @@
 
 	myDate = new Date();
 	myHour= myDate.getHours();
+	myDay=myDate.getDay();
+
+	const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+	let dayOfTheWeek = days[myDay];
 
 
 	if(myHour<12 && myHour>5){
 	mySentence ="Good morning";
 	myColor ="orange";
+	myDay= "Today is " +dayOfTheWeek+"!";
 	myPic ="morning.jpg";
 	}
 	else if(myHour>=12 && myHour<=18){
 		mySentence ="Good afternoon";
 		myColor ="pink";
+		myDay= "Today is " +dayOfTheWeek+"!";
 		myPic ="afternoon.jpg";
 	}
 	else if(myHour>18 && myHour<=23){
 		mySentence ="Good evening";
 		myColor ="lightblue";
+		myDay= "Today is " +dayOfTheWeek+"!";
 		myPic ="evening.jpg";
 	}else{
 		mySentence ="Good night";
 		myColor ="grey";
+		myDay= "Today is " +dayOfTheWeek+"!";
 		myPic ="night.jpg";
 	}
 
@@ -89,6 +105,7 @@
 	document.getElementById("my_greeting").innerHTML = mySentence;
 	document.body.style.backgroundColor = myColor;
 	document.getElementById("my-pic").src = myPic;
+	document.getElementById("my_day").innerHTML = myDay;
 
     document.getElementById("html-checker").setAttribute("href","https://validator.w3.org/nu/?doc=" + location.href);
     document.getElementById("css-checker").setAttribute("href","https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);  
